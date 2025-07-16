@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Greeting from '../components/sample/Greeting'
 
 const Sample = () => {
@@ -6,16 +6,23 @@ const Sample = () => {
     const handleButtonClick = (data) => {
         console.log("click", data)
     }
-        
-  return (
-    <div>Sample
-        <Greeting name="하경아"
-        onButtonClick={handleButtonClick}/>
-        <Greeting name="최선영"
-        onButtonClick={handleButtonClick}/>
-        <Greeting />
-    </div>
-  )
+
+    const [userNames, setUserNames] = useState([])
+    useEffect(() => {
+        // 컴포넌트 생성 시 딱 한번만 실행 
+        const nameDatas = ["하경아", "최선영", "송의진"]
+        setUserNames(nameDatas)
+    }, [])
+    
+
+    return (
+        <div> Sample 
+            {userNames.map((userName, index) => (
+                <Greeting key={`username${index}`}
+                name={userName} onButtonClick={handleButtonClick}/>
+            ))}            
+        </div>
+    )
 }
 
 export default Sample
