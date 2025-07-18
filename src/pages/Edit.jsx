@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PostInput from "../components/PostInput";
 import { useEffect, useState } from "react";
-import { initialFeedList } from "../data/response";
+
 
 const Edit = () => {
   // logic
