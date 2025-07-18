@@ -46,6 +46,7 @@ const PostInput = ({
           <div className="pt-1 text-sm">
             <textarea
               rows={4}
+              name="content"
               placeholder="문구를 작성하세요"
               value={value}
               ref={textareaRef}

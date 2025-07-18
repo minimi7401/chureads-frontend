@@ -84,13 +84,11 @@ const SignUp = () => {
         </h3>
         {/* START: 폼 영역 */}
         <form id="login-form" className="text-center flex flex-col gap-2" onSubmit={handleSignUp}>
-          <InputField type="text" field="name" onChange={handleInputChange}/>
-          <InputField type="text" field="email" onChange={handleInputChange}/>
-          <InputField type="password" field="password" onChange={handleInputChange}/>
-
-          {/*error 메시지 추가*/}
+          <InputField type="text" field="name" onChange={handleInputChange} />
+          <InputField type="text" field="email" onChange={handleInputChange} />
+          <InputField type="password" field="password" onChange={handleInputChange} />
+          {/* Erromessage 추가 */}
           {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-
           <LoginButton category="login" text="Create Account" />
         </form>
         {/* END: 폼 영역 */}

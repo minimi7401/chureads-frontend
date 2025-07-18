@@ -16,4 +16,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app) // 우리 프로젝트 인증 서비스를 사용하겠다고 선언! 
+export const auth = getAuth(app); // 우리 프로젝트에 인증 서비스를 사용하겠다고 선언

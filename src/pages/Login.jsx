@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase";
 
+// 미션: 이미 로그인된 사용자는 login페이지 접근불가
+// Home페이지로 리다이렉트 시키기
 
 const Login = () => {
   // logic
@@ -57,19 +59,22 @@ const Login = () => {
     }
   };
 
+  //=======================
 
   const handleGoogleLogin = async () => {
     // TODO: 구글 로그인 구현
-    console.log ("구글로그인!!! 🤣🤣🤣"); 
+    // 구글 provider
     const provider = new GoogleAuthProvider()
     try {
-      // 1. 팝업띄워서 로그인 
+      // 1. 팝업 띄워서 로그인
       await signInWithPopup(auth, provider)
-      history("/") 
-      // 2. 홈 화면으로 리다이렉트   
+      // 2. 홈 화면으로 리다이렉트
+      history("/")
+
     } catch (error) {
-      console.error(error) 
+      console.error(error)
     }
+
   };
 
   // view
@@ -94,9 +99,8 @@ const Login = () => {
             field="password"
             onChange={handleInputChange}
           />
-          {/*error 메시지 추가*/}
+          {/* Erromessage 추가 */}
           {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-          
           <LoginButton category="login" text="Login" />
         </form>
         {/* END: 폼 영역 */}
